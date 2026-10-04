@@ -1,9 +1,11 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src/SeriesApp.Api/SeriesApp.Api.csproj" />
+    <Project Path="src/SeriesApp.Modules.Catalog/SeriesApp.Modules.Catalog.csproj" />
     <Project Path="src/SeriesApp.SharedKernel/SeriesApp.SharedKernel.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/SeriesApp.Api.Tests/SeriesApp.Api.Tests.csproj" />
+    <Project Path="tests/SeriesApp.Modules.Catalog.Tests/SeriesApp.Modules.Catalog.Tests.csproj" />
   </Folder>
 </Solution>

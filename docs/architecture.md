@@ -50,6 +50,34 @@ The rules:
 2. Implement `IModule`.
 3. Reference it from `SeriesApp.Api` and add it to `ModuleRegistry.Modules`.
 
+## Catalog module
+
+`src/SeriesApp.Modules.Catalog` is the first feature module: searching films and television
+series, exposed as `GET /api/catalog/search`.
+
+It depends on its own `ICatalogProvider` abstraction rather than on a particular upstream
+service. `TmdbCatalogProvider` implements that interface over TMDB's multi-search API through a
+typed `HttpClient`, and is the only type that knows TMDB exists — TMDB's wire models stay
+internal to the module, and the endpoint returns SeriesApp's own contracts. Replacing the
+provider, or putting a cache in front of one, is therefore a swap behind the interface rather
+than a change to the API surface. Third-party providers are expected to stay replaceable.
+
+### TMDB stays behind the backend
+
+TMDB is reached **only** from the API host. `apps/web` and `apps/mobile` call SeriesApp; they
+never call TMDB directly.
+
+The TMDB read access token comes from .NET user secrets in development and from the host's
+configuration provider elsewhere — never from source control. It is read once, when the typed
+client is built, attached as a bearer header, and is never serialized into a response or written
+to a log (the `Authorization` header is explicitly redacted in `HttpClient`'s logs). **Clients
+never receive the token and have no need to know it.** That is the point of keeping the
+integration server-side: a token shipped into a browser or a mobile bundle is a published token.
+
+Upstream failures stay inside the module too. A non-success status, an unreadable payload, a
+transport error, or a timeout all become a `CatalogProviderException` carrying SeriesApp's own
+message, which the endpoint reports as a `502` with no third-party detail in the body.
+
 ## Clients
 
 `apps/web` and `apps/mobile` are independent npm projects — no workspace, separate

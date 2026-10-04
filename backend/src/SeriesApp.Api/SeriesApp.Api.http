@@ -7,3 +7,7 @@ Accept: text/plain
 ### OpenAPI document (Development only)
 GET {{SeriesApp.Api_HostAddress}}/openapi/v1.json
 Accept: application/json
+
+### Catalog multi-search
+GET {{SeriesApp.Api_HostAddress}}/api/catalog/search?query=breaking%20bad&page=1
+Accept: application/json

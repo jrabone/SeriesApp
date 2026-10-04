@@ -1,14 +1,12 @@
 using System.Net;
-using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace SeriesApp.Api.Tests;
 
 /// <summary>
-/// Boots the real API host in-memory and asserts the host wiring works end to end.
-/// With no feature modules registered yet, the health endpoint is the whole surface.
+/// Boots the real API host in-memory and asserts the host wiring works end to end, including
+/// that module registration and its startup option validation do not break the host.
 /// </summary>
-public sealed class HealthEndpointTests(WebApplicationFactory<Program> factory)
-    : IClassFixture<WebApplicationFactory<Program>>
+public sealed class HealthEndpointTests(SeriesAppApiFactory factory) : IClassFixture<SeriesAppApiFactory>
 {
     [Fact]
     public async Task Health_endpoint_reports_healthy()

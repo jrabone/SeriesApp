@@ -1,3 +1,4 @@
+using SeriesApp.Modules.Catalog;
 using SeriesApp.SharedKernel;
 
 namespace SeriesApp.Api;
@@ -12,5 +13,5 @@ namespace SeriesApp.Api;
 /// </remarks>
 internal static class ModuleRegistry
 {
-    public static IReadOnlyList<IModule> Modules { get; } = [];
+    public static IReadOnlyList<IModule> Modules { get; } = [new CatalogModule()];
 }

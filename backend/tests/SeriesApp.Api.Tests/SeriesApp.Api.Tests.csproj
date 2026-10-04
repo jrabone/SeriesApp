@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\SeriesApp.Api\SeriesApp.Api.csproj" />
+    <ProjectReference Include="..\..\src\SeriesApp.Modules.Catalog\SeriesApp.Modules.Catalog.csproj" />
   </ItemGroup>
 
 </Project>

@@ -78,6 +78,7 @@ not incidental cleanup:
 
 - No database, EF Core, migrations, or entities — PostgreSQL is planned, unconfigured.
 - No authentication or authorization.
-- No movie/series domain logic. `/health` is the only endpoint.
+- No local movie/series domain model. The Catalog module reads from TMDB and maps straight to
+  response contracts; `/health` and `GET /api/catalog/search` are the only endpoints.
 - No Docker, CI pipeline, or deployment configuration.
 - No shared `packages/` directory between web and mobile.
