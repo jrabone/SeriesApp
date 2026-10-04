@@ -1,0 +1,9 @@
+@SeriesApp.Api_HostAddress = http://localhost:5080
+
+### Liveness probe
+GET {{SeriesApp.Api_HostAddress}}/health
+Accept: text/plain
+
+### OpenAPI document (Development only)
+GET {{SeriesApp.Api_HostAddress}}/openapi/v1.json
+Accept: application/json

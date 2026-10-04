@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SeriesApp.Api/SeriesApp.Api.csproj" />
+    <Project Path="src/SeriesApp.SharedKernel/SeriesApp.SharedKernel.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/SeriesApp.Api.Tests/SeriesApp.Api.Tests.csproj" />
+  </Folder>
+</Solution>

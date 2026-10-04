@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <!-- Module contracts are expressed in terms of ASP.NET Core abstractions
+         (IServiceCollection, IEndpointRouteBuilder) without being a web project. -->
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+</Project>

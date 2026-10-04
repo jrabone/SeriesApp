@@ -1,0 +1,93 @@
+# ---------------------------------------------------------------------------
+# SeriesApp — root ignore rules for the whole monorepo
+# ---------------------------------------------------------------------------
+
+# --- Node / npm -------------------------------------------------------------
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.tsbuildinfo
+
+# --- Next.js (apps/web) -----------------------------------------------------
+.next/
+out/
+build/
+.vercel
+next-env.d.ts
+
+# --- Expo / React Native (apps/mobile) --------------------------------------
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+.metro-health-check*
+.kotlin/
+*.orig.*
+
+# Generated native projects — regenerate with `npx expo prebuild`
+/apps/mobile/ios/
+/apps/mobile/android/
+
+# Signing material — never commit
+*.jks
+*.p8
+*.p12
+*.key
+*.pem
+*.mobileprovision
+
+# --- .NET (backend) ---------------------------------------------------------
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+TestResults/
+*.user
+*.suo
+*.userprefs
+*.nupkg
+*.snupkg
+artifacts/
+.dotnet/
+msbuild.log
+coverage*.json
+coverage*.xml
+coverage*.info
+
+# --- Environment / secrets --------------------------------------------------
+.env
+.env.*
+!.env.example
+appsettings.Local.json
+appsettings.*.Local.json
+secrets.json
+
+# --- Editors & IDEs ---------------------------------------------------------
+.vs/
+.idea/
+*.sln.docstates
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# --- Testing / coverage -----------------------------------------------------
+coverage/
+.nyc_output/
+
+# --- OS ---------------------------------------------------------------------
+*.stackdump
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
